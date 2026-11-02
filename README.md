@@ -24,7 +24,7 @@ Open the printed local URL. The server binds only to the loopback interface and 
 
 ## Deployment
 
-Deployment target: [edgepillar.github.io](https://edgepillar.github.io/).
+Deployment target: [edgepillar.com](https://edgepillar.com/).
 
 GitHub Pages publishes updates to `main` through `.github/workflows/pages.yml`. The workflow stages only `index.html`, `styles.css`, `script.js`, the two SVG assets, and an empty `.nojekyll` marker. Development files, documentation, preview images, and repository metadata are excluded from the deployed artifact. The official GitHub Actions are pinned to commit SHAs.
 
