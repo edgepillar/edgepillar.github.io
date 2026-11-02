@@ -60,8 +60,18 @@
             <div class="contact-row table-heading" role="row"><span role="columnheader">CHANNEL</span><span role="columnheader">ADDRESS</span><span class="sr-only" role="columnheader">Action</span></div>
             <div class="contact-row" role="row"><span class="channel" role="cell">GitHub</span><span role="cell"><a href="https://github.com/edgepillar" rel="noreferrer">github.com/edgepillar <span aria-hidden="true">↗</span></a></span><span class="copy-cell" role="cell"><button class="copy-button" type="button" data-copy="https://github.com/edgepillar" aria-label="Copy GitHub profile URL" hidden>[ copy ]</button></span></div>
             <div class="contact-row" role="row"><span class="channel" role="cell">X</span><span role="cell"><a href="https://x.com/edgepillar" rel="noreferrer">x.com/edgepillar <span aria-hidden="true">↗</span></a></span><span class="copy-cell" role="cell"><button class="copy-button" type="button" data-copy="https://x.com/edgepillar" aria-label="Copy X profile URL" hidden>[ copy ]</button></span></div>
-            <div class="contact-row" role="row"><span class="channel" role="cell">OpenPGP</span><span role="cell"><a href="https://keys.openpgp.org/search?q=edgepillar@protonmail.com" rel="noreferrer" aria-label="Find the public OpenPGP key for edgepillar@protonmail.com">edgepillar@protonmail.com <span aria-hidden="true">↗</span></a></span><span class="copy-cell" role="cell"><button class="copy-button" type="button" data-copy="https://keys.openpgp.org/search?q=edgepillar@protonmail.com" aria-label="Copy OpenPGP key search URL" hidden>[ copy ]</button></span></div>
+            <div class="contact-row email-row" role="row" id="email-row" hidden>
+              <span class="channel" role="cell">Email</span>
+              <span role="cell" class="email-content"><button class="reveal-button" id="reveal-email" type="button" aria-expanded="false" aria-controls="email-address openpgp-row">[ show email ]</button><a id="email-address" hidden></a></span>
+              <span class="copy-cell" role="cell"><button class="copy-button" id="copy-email" type="button" aria-label="Copy email address" hidden>[ copy ]</button></span>
+            </div>
+            <div class="contact-row openpgp-row" role="row" id="openpgp-row" hidden>
+              <span class="channel" role="cell">OpenPGP</span>
+              <span role="cell"><a id="openpgp-link" rel="noreferrer">Public key <span aria-hidden="true">↗</span></a></span>
+              <span role="cell" aria-hidden="true">—</span>
+            </div>
           </div>
+          <noscript><p class="contact-note">Email reveal needs JavaScript. You can reach me through GitHub or X.</p></noscript>
           <p class="contact-note"><span aria-hidden="true">↳</span> Project-specific questions are best kept with the relevant repository.</p>
           <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
         </section>

@@ -100,6 +100,11 @@ h3 { margin: 0; font-size: 14px; line-height: 1.6; font-weight: 500; color: var(
 .contact-row .copy-cell { display: flex; align-items: center; justify-content: center; padding: 0 5px; }
 .copy-button { border: 0; padding: 8px 0; background: none; font-size: 10px; white-space: nowrap; }
 .copy-button:hover { color: var(--green); }
+.email-row[hidden], .openpgp-row[hidden] { display: none; }
+.email-content { min-width: 0; }
+#email-address { color: var(--amber); overflow-wrap: anywhere; }
+.reveal-button { border: 0; padding: 0; background: none; font-size: inherit; white-space: nowrap; }
+.reveal-button:hover { color: var(--green); }
 .contact-note { color: var(--muted); font-size: 11px; margin-top: 15px; }
 .contact-note > span { color: var(--green); margin-right: 7px; }
 .colophon { padding-bottom: 31px; }
