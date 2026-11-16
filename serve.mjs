@@ -6,6 +6,8 @@ const files = new Map([
   ["/index.html", ["index.html", "text/html; charset=utf-8"]],
   ["/styles.css", ["styles.css", "text/css; charset=utf-8"]],
   ["/script.js", ["script.js", "text/javascript; charset=utf-8"]],
+  ["/repository-order.mjs", ["repository-order.mjs", "text/javascript; charset=utf-8"]],
+  ["/repositories-data.mjs", ["repositories-data.mjs", "text/javascript; charset=utf-8"]],
   ["/assets/wordmark.svg", ["assets/wordmark.svg", "image/svg+xml"]],
   ["/assets/favicon.svg", ["assets/favicon.svg", "image/svg+xml"]],
 ]);

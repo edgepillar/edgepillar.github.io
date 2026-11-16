@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
 
 permissions:
   contents: read
@@ -26,8 +28,14 @@ jobs:
         run: |
           mkdir -p _site/assets
           cp index.html styles.css script.js _site/
+          cp repository-order.mjs repositories-data.mjs _site/
           cp assets/wordmark.svg assets/favicon.svg _site/assets/
           touch _site/.nojekyll
+      - name: Refresh public repository snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node tools/refresh-repositories.mjs _site || echo "::warning::Repository refresh failed; publishing the saved snapshot."
       - name: Upload public files
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:

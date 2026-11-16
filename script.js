@@ -1,5 +1,8 @@
 "use strict";
 
+import { repositorySnapshot } from "./repositories-data.mjs";
+import { describeRepository, formatRepositoryDate, repositoryMetadata, selectRepositories } from "./repository-order.mjs";
+
 const effectsButton = document.querySelector(".effects-button");
 if (effectsButton) {
   effectsButton.hidden = false;
@@ -53,5 +56,49 @@ if (emailRow && revealEmail && emailAddress && openpgpRow && openpgpLink) {
     revealEmail.hidden = true;
     copyStatus.textContent = "Email address and OpenPGP link revealed.";
     emailAddress.focus();
+  });
+}
+
+const repositoryList = document.querySelector("#repository-list");
+const repositorySort = document.querySelector(".repository-sort");
+if (repositoryList && repositorySort) {
+  function showRepositories(mode) {
+    const projects = selectRepositories(repositorySnapshot.repositories, mode);
+    const element = (tag, className, text) => {
+      const node = document.createElement(tag);
+      node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+    const cards = projects.map((repository, index) => {
+      const details = describeRepository(repository);
+      const link = element("a", "project");
+      link.href = repository.url;
+      link.rel = "noreferrer";
+      const number = element("span", "project-number", String(index + 1).padStart(2, "0"));
+      number.setAttribute("aria-hidden", "true");
+      const content = element("div", "project-content");
+      const title = element("div", "project-title");
+      title.append(element("h3", "", repository.name), element("span", "tag", details.tag));
+      content.append(title, element("p", "", details.description), element("span", "project-meta", repositoryMetadata(repository)));
+      const arrow = element("span", "project-arrow", "↗");
+      arrow.setAttribute("aria-hidden", "true");
+      link.append(number, content, arrow);
+      return link;
+    });
+    repositoryList.replaceChildren(...cards);
+    repositorySort.querySelectorAll("button").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.repositorySort === mode));
+    });
+    document.querySelector("#repository-updated").textContent = `Data updated ${formatRepositoryDate(repositorySnapshot.updatedAt)}`;
+    document.querySelector("#repository-status").textContent = mode === "popular"
+      ? "Showing the three repositories with the most stars."
+      : "Showing the three most recently pushed repositories.";
+  }
+  showRepositories("recent");
+  repositorySort.hidden = false;
+  repositorySort.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-repository-sort]");
+    if (button) showRepositories(button.dataset.repositorySort);
   });
 }

@@ -10,7 +10,7 @@
     <title>edgepillar / small brain, medium AI, x-large character</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js" defer></script>
+    <script src="./script.js" type="module"></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -32,26 +32,35 @@
       <main id="main">
         <section class="section" id="work" aria-labelledby="work-heading">
           <div class="section-heading"><h2 id="work-heading"><span aria-hidden="true">##</span> SELECTED WORK</h2><span class="section-index" aria-hidden="true">01 / 02</span></div>
-          <p class="section-description">A few threads worth following. Code and context live in the repositories.</p>
-          <a class="zats-button" href="https://zats.pics/" target="_blank" rel="noopener noreferrer">Open ZATS <span aria-hidden="true">↗</span></a>
-          <div class="project-list">
-            <a class="project" href="https://github.com/edgepillar/zenon-spv" rel="noreferrer">
-              <span class="project-number" aria-hidden="true">01</span>
-              <div class="project-content"><div class="project-title"><h3>zenon-spv</h3><span class="tag">CONTRIBUTION / FORK</span></div><p>Resource-bounded verification for the Zenon Network of Momentum.</p><span class="project-meta">Go <span aria-hidden="true">/</span> Verification</span></div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="project" href="https://github.com/edgepillar/zenon-x402-poc" rel="noreferrer">
-              <span class="project-number" aria-hidden="true">02</span>
-              <div class="project-content"><div class="project-title"><h3>zenon-x402-poc</h3><span class="tag">EXPERIMENT</span></div><p>Exploring Zenon as a settlement rail for HTTP-native payments.</p><span class="project-meta">JavaScript <span aria-hidden="true">/</span> x402</span></div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="project" href="https://github.com/edgepillar/bitcoin-payments-zenon" rel="noreferrer">
-              <span class="project-number" aria-hidden="true">03</span>
-              <div class="project-content"><div class="project-title"><h3>bitcoin-payments-zenon</h3><span class="tag">RESEARCH DRAFT</span></div><p>Independent research on Bitcoin payments and Zenon resource services.</p><span class="project-meta">Research <span aria-hidden="true">/</span> Payment design</span></div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </a>
+          <p class="section-description">Public repositories, sorted by recent pushes or stars.</p>
+          <div class="work-toolbar">
+            <a class="zats-button" href="https://zats.pics/" target="_blank" rel="noopener noreferrer">Open ZATS <span aria-hidden="true">↗</span></a>
+            <div class="repository-sort" role="group" aria-label="Sort repositories" hidden>
+              <button type="button" data-repository-sort="recent" aria-pressed="true">[ recent ]</button>
+              <button type="button" data-repository-sort="popular" aria-pressed="false">[ popular ]</button>
+            </div>
           </div>
-          <div class="section-footnote"><span>Experimental work has its own scope and limitations.</span><a class="text-link" href="https://github.com/edgepillar?tab=repositories" rel="noreferrer">All repositories <span aria-hidden="true">↗</span></a></div>
+          <div class="project-list" id="repository-list">
+            <!-- repositories:start -->
+            <a class="project" href="https://github.com/edgepillar/syrius" rel="noreferrer">
+              <span class="project-number" aria-hidden="true">01</span>
+              <div class="project-content"><div class="project-title"><h3>syrius</h3><span class="tag">FORK</span></div><p>Public fork on GitHub.</p><span class="project-meta">Code / 0 stars / Pushed 16 Nov 2026</span></div>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="project" href="https://github.com/edgepillar/zenon-spv" rel="noreferrer">
+              <span class="project-number" aria-hidden="true">02</span>
+              <div class="project-content"><div class="project-title"><h3>zenon-spv</h3><span class="tag">FORK</span></div><p>Resource-bounded verification for the Zenon Network of Momentum.</p><span class="project-meta">Python / 1 star / Pushed 15 Nov 2026</span></div>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="project" href="https://github.com/edgepillar/zvm-zns" rel="noreferrer">
+              <span class="project-number" aria-hidden="true">03</span>
+              <div class="project-content"><div class="project-title"><h3>zvm-zns</h3><span class="tag">FORK</span></div><p>Public fork on GitHub.</p><span class="project-meta">Code / 0 stars / Pushed 14 Nov 2026</span></div>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </a>
+            <!-- repositories:end -->
+          </div>
+          <div class="section-footnote"><span id="repository-updated">Data updated 16 Nov 2026</span><a class="text-link" href="https://github.com/edgepillar?tab=repositories" rel="noreferrer">All repositories <span aria-hidden="true">↗</span></a></div>
+          <p id="repository-status" class="sr-only" role="status" aria-live="polite"></p>
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-heading">

@@ -73,6 +73,13 @@ p { margin: 0; }
 .zats-button > span { font-size: 16px; line-height: 1; }
 .zats-button:hover { color: var(--bg); box-shadow: 0 0 28px #78eb5545, inset 0 1px 0 #e9ffcc80; transform: translateY(-1px); }
 .zats-button:focus-visible { outline-color: var(--amber); }
+.work-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px 20px; margin-bottom: 22px; }
+.work-toolbar .zats-button { margin-bottom: 0; }
+.repository-sort { display: flex; align-items: center; gap: 14px; }
+.repository-sort[hidden] { display: none; }
+.repository-sort button { border: 0; border-bottom: 1px solid transparent; padding: 8px 0; background: none; color: var(--muted); font-size: 11px; white-space: nowrap; }
+.repository-sort button:hover, .repository-sort button[aria-pressed="true"] { color: var(--green); }
+.repository-sort button[aria-pressed="true"] { border-bottom-color: var(--green); }
 .project-list { border: 1px solid var(--line); }
 .project { display: grid; grid-template-columns: 27px minmax(0, 1fr) 18px; gap: 16px; padding: 21px 22px; transition: background 150ms; color: var(--text); }
 .project + .project { border-top: 1px solid var(--line); }
