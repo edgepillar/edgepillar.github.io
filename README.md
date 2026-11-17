@@ -18,6 +18,7 @@ Open the printed local URL. The server binds only to the loopback interface and 
 
 - Edit the slogan and contact labels in `index.html`; the revealed email address is assembled in `script.js`.
 - Edit colors and layout in `styles.css`.
+- `alien-backdrop.mjs` draws original alien faces behind the page, revealed only within a mouse spotlight. Pointer positions stay in memory and are never persisted or transmitted. The effect paints on demand, clears when the pointer leaves or the window loses focus, and follows the glow toggle. It stays off for coarse pointers and reduced-motion preferences.
 - `script.js` adds the optional visual-effects toggle, clipboard actions, and email reveal. GitHub, X, project links, and navigation work without JavaScript.
 - The `[ show email ]` button reveals the email address, its copy button, and the owner-supplied OpenPGP key search link. Email and OpenPGP links are created after that interaction. This is lightweight obfuscation that deters simple address harvesters; client-side code and public repository history do not keep the address secret or guarantee spam prevention.
 - The OpenPGP link opens a keyserver search; no key or fingerprint is embedded or independently verified. No other person's contact information has been copied from the reference.
@@ -31,7 +32,7 @@ Open the printed local URL. The server binds only to the loopback interface and 
 
 Deployment target: [edgepillar.com](https://edgepillar.com/).
 
-GitHub Pages publishes updates to `main` through `.github/workflows/pages.yml`. The workflow stages only `index.html`, `styles.css`, `script.js`, the repository and donation modules, the two SVG assets, and an empty `.nojekyll` marker, then refreshes the repository snapshot in the staged output. Development files, documentation, preview images, and Git metadata are excluded from the deployed artifact. The official GitHub Actions are pinned to commit SHAs. Scheduled runs refresh the published data without creating commits.
+GitHub Pages publishes updates to `main` through `.github/workflows/pages.yml`. The workflow stages only `index.html`, `styles.css`, `script.js`, the repository, donation, and backdrop modules, the two SVG assets, and an empty `.nojekyll` marker, then refreshes the repository snapshot in the staged output. Development files, documentation, preview images, and Git metadata are excluded from the deployed artifact. The official GitHub Actions are pinned to commit SHAs. Scheduled runs refresh the published data without creating commits.
 
 ## Public sources
 

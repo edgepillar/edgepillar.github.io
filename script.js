@@ -3,6 +3,9 @@
 import { repositorySnapshot } from "./repositories-data.mjs";
 import { describeRepository, formatRepositoryDate, repositoryMetadata, selectRepositories } from "./repository-order.mjs";
 import { donationAddresses } from "./donation-addresses.mjs";
+import { createAlienBackdrop } from "./alien-backdrop.mjs";
+
+const alienBackdrop = createAlienBackdrop(document.querySelector("#alien-backdrop"));
 
 const effectsButton = document.querySelector(".effects-button");
 if (effectsButton) {
@@ -11,6 +14,7 @@ if (effectsButton) {
     const effectsOff = document.body.classList.toggle("effects-off");
     effectsButton.setAttribute("aria-pressed", String(!effectsOff));
     effectsButton.textContent = effectsOff ? "glow: off" : "glow: on";
+    alienBackdrop.refresh();
   });
 }
 
