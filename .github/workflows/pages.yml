@@ -29,6 +29,7 @@ jobs:
           mkdir -p _site/assets
           cp index.html styles.css script.js _site/
           cp repository-order.mjs repositories-data.mjs _site/
+          cp donation-addresses.mjs _site/
           cp assets/wordmark.svg assets/favicon.svg _site/assets/
           touch _site/.nojekyll
       - name: Refresh public repository snapshot

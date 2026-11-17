@@ -118,6 +118,37 @@ h3 { margin: 0; font-size: 14px; line-height: 1.6; font-weight: 500; color: var(
 .reveal-button:hover { color: var(--green); }
 .contact-note { color: var(--muted); font-size: 11px; margin-top: 15px; }
 .contact-note > span { color: var(--green); margin-right: 7px; }
+.donation-box { --coin-color: var(--amber); position: relative; border: 1px solid #43513d; padding: 30px; background: radial-gradient(ellipse at top right, #78eb5509, transparent 65%), var(--surface); box-shadow: inset 0 0 0 5px var(--bg), 0 0 30px #78eb5505; }
+.donation-box[data-donation-asset="ZNN"] { --coin-color: var(--green); }
+.donation-intro { display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-bottom: 27px; }
+.donation-kicker { font-size: 9px; letter-spacing: .12em; color: var(--muted); margin-bottom: 10px; }
+.donation-kicker > span { color: var(--green); margin-right: 7px; }
+.donation-title { font-size: clamp(23px, 3.8vw, 32px); font-weight: 500; line-height: 1.3; color: var(--text); letter-spacing: -.045em; }
+.donation-title > span { color: var(--green); }
+.donation-description { max-width: 410px; font-size: 12px; color: var(--muted); margin-top: 11px; }
+.donation-stamp { display: flex; align-items: center; gap: 12px; font-size: 8px; line-height: 1.8; letter-spacing: .09em; color: var(--muted); white-space: nowrap; }
+.donation-spark { font-size: 49px; line-height: 1; color: var(--green); text-shadow: 0 0 16px #78eb5530; }
+.donation-assets { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.donation-asset { display: flex; align-items: center; gap: 13px; border: 1px solid var(--line); padding: 15px 17px; background: var(--bg); color: var(--muted); text-align: left; }
+.donation-asset[data-donation-choice="BTC"] { --asset-color: var(--amber); }
+.donation-asset[data-donation-choice="ZNN"] { --asset-color: var(--green); }
+.donation-asset:hover { border-color: var(--asset-color); }
+.donation-asset[aria-pressed="true"] { border-color: var(--asset-color); box-shadow: inset 3px 0 0 var(--asset-color); color: var(--text); }
+.coin-mark { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--asset-color); border-radius: 50%; color: var(--asset-color); font-size: 23px; line-height: 1; }
+.coin-name { font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+.coin-name > span { display: block; color: var(--muted); font-size: 10px; font-weight: 400; letter-spacing: 0; }
+.coin-indicator { margin-left: auto; color: var(--line); font-size: 8px; }
+.donation-asset[aria-pressed="true"] .coin-indicator { color: var(--asset-color); }
+.donation-output { border-top: 1px dashed var(--line); margin-top: 23px; padding-top: 18px; }
+.donation-network { color: var(--coin-color); font-size: 9px; letter-spacing: .1em; }
+.donation-address-row { display: flex; align-items: center; gap: 16px; min-height: 52px; padding: 10px 0; }
+#donation-address { min-width: 0; font: inherit; font-size: 12px; color: var(--text); overflow-wrap: anywhere; }
+#donation-address.address-pending { color: var(--muted); }
+.donation-reveal, .donation-copy { min-height: 44px; padding: 6px 0; border: 0; background: none; color: var(--coin-color); font-size: 11px; white-space: nowrap; }
+.donation-reveal:hover, .donation-copy:hover { color: var(--text); }
+.donation-copy { margin-left: auto; }
+.donation-copy:disabled { color: var(--muted); opacity: .6; }
+.donation-network-note { color: var(--muted); font-size: 10px; }
 .colophon { padding-bottom: 31px; }
 .colophon-layout { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
 .colophon-layout p { color: var(--muted); font-size: 12px; line-height: 1.9; }
@@ -131,6 +162,8 @@ body.effects-off::after { display: none; }
 body.effects-off .wordmark { filter: none; }
 body.effects-off .cursor { animation: none; }
 body.effects-off .zats-button { box-shadow: none; }
+body.effects-off .donation-box { box-shadow: inset 0 0 0 5px var(--bg); }
+body.effects-off .donation-spark { text-shadow: none; }
 @media (min-width: 1400px) { .page { padding-top: 42px; } }
 @media (max-width: 800px) {
   .page { width: calc(100% - 48px); padding-top: 24px; }
@@ -174,6 +207,16 @@ body.effects-off .zats-button { box-shadow: none; }
   .contact-row a > span { margin-left: 0; }
   .copy-button { font-size: 11px; }
   .contact-note { font-size: 11px; }
+  .donation-box { padding: 21px 18px; }
+  .donation-intro { gap: 15px; margin-bottom: 22px; }
+  .donation-stamp { display: none; }
+  .donation-title { font-size: 26px; }
+  .donation-asset { gap: 9px; padding: 13px 11px; }
+  .coin-mark { width: 28px; height: 28px; font-size: 19px; }
+  .coin-name { font-size: 12px; }
+  .donation-address-row { flex-wrap: wrap; gap: 8px 14px; }
+  #donation-address { flex-basis: 100%; font-size: 11px; }
+  .donation-copy { margin-left: 0; }
   .colophon-layout { align-items: start; flex-direction: column; gap: 18px; }
   .colophon-layout ul { display: flex; flex-wrap: wrap; gap: 6px 16px; }
   footer { flex-wrap: wrap; gap: 12px; line-height: 1.9; }

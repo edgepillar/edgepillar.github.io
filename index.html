@@ -25,13 +25,14 @@
         <nav class="navigation" aria-label="Sections">
           <a href="#work"><span aria-hidden="true">[</span> work <span aria-hidden="true">]</span></a>
           <a href="#contact"><span aria-hidden="true">[</span> contact <span aria-hidden="true">]</span></a>
+          <a href="#support"><span aria-hidden="true">[</span> support <span aria-hidden="true">]</span></a>
           <button class="effects-button" type="button" aria-pressed="true" hidden>glow: on</button>
         </nav>
       </header>
 
       <main id="main">
         <section class="section" id="work" aria-labelledby="work-heading">
-          <div class="section-heading"><h2 id="work-heading"><span aria-hidden="true">##</span> SELECTED WORK</h2><span class="section-index" aria-hidden="true">01 / 02</span></div>
+          <div class="section-heading"><h2 id="work-heading"><span aria-hidden="true">##</span> SELECTED WORK</h2><span class="section-index" aria-hidden="true">01 / 03</span></div>
           <p class="section-description">Public repositories, sorted by recent pushes or stars.</p>
           <div class="work-toolbar">
             <a class="zats-button" href="https://zats.pics/" target="_blank" rel="noopener noreferrer">Open ZATS <span aria-hidden="true">↗</span></a>
@@ -64,7 +65,7 @@
         </section>
 
         <section class="section" id="contact" aria-labelledby="contact-heading">
-          <div class="section-heading"><h2 id="contact-heading"><span aria-hidden="true">##</span> CONTACT</h2><span class="section-index" aria-hidden="true">02 / 02</span></div>
+          <div class="section-heading"><h2 id="contact-heading"><span aria-hidden="true">##</span> CONTACT</h2><span class="section-index" aria-hidden="true">02 / 03</span></div>
           <p class="section-description">For code, questions, and conversations about the work.</p>
           <div class="contact-table" role="table" aria-label="Public contact channels">
             <div class="contact-row table-heading" role="row"><span role="columnheader">CHANNEL</span><span role="columnheader">ADDRESS</span><span class="sr-only" role="columnheader">Action</span></div>
@@ -84,6 +85,35 @@
           <noscript><p class="contact-note">Email reveal needs JavaScript. You can reach me through GitHub or X.</p></noscript>
           <p class="contact-note"><span aria-hidden="true">↳</span> Project-specific questions are best kept with the relevant repository.</p>
           <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="section" id="support" aria-labelledby="support-heading">
+          <div class="section-heading"><h2 id="support-heading"><span aria-hidden="true">##</span> SUPPORT</h2><span class="section-index" aria-hidden="true">03 / 03</span></div>
+          <div class="donation-box" data-donation-asset="BTC">
+            <div class="donation-intro">
+              <div>
+                <p class="donation-kicker"><span aria-hidden="true">+</span> OPTIONAL SIDE QUEST</p>
+                <h3 class="donation-title">Fuel the side quests<span aria-hidden="true">_</span></h3>
+                <p class="donation-description">A little fuel for code, research, and the next rabbit hole.</p>
+              </div>
+              <div class="donation-stamp" aria-hidden="true"><span class="donation-spark">✳</span><span>GOOD CODE.<br>ODD HOURS.</span></div>
+            </div>
+            <div class="donation-assets" role="group" aria-label="Donation currency">
+              <button class="donation-asset" type="button" data-donation-choice="BTC" aria-pressed="true" disabled><span class="coin-mark" aria-hidden="true">₿</span><span class="coin-name">BTC<span>Bitcoin</span></span><span class="coin-indicator" aria-hidden="true">●</span></button>
+              <button class="donation-asset" type="button" data-donation-choice="ZNN" aria-pressed="false" disabled><span class="coin-mark" aria-hidden="true">Z</span><span class="coin-name">ZNN<span>Zenon</span></span><span class="coin-indicator" aria-hidden="true">●</span></button>
+            </div>
+            <div class="donation-output">
+              <p class="donation-network" id="donation-network">BITCOIN NETWORK</p>
+              <div class="donation-address-row">
+                <button class="donation-reveal" id="donation-reveal" type="button" aria-expanded="false" aria-controls="donation-address donation-copy" hidden>[ show address ]</button>
+                <code id="donation-address" hidden></code>
+                <button class="donation-copy" id="donation-copy" type="button" aria-label="Copy BTC donation address" hidden>[ copy ]</button>
+              </div>
+              <p class="donation-network-note">BTC on Bitcoin. ZNN on Zenon.</p>
+            </div>
+            <noscript><p class="donation-network-note">Enable JavaScript to choose a currency and reveal its donation address.</p></noscript>
+            <p id="donation-status" class="sr-only" role="status" aria-live="polite"></p>
+          </div>
         </section>
       </main>
 

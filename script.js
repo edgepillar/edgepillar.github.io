@@ -2,6 +2,7 @@
 
 import { repositorySnapshot } from "./repositories-data.mjs";
 import { describeRepository, formatRepositoryDate, repositoryMetadata, selectRepositories } from "./repository-order.mjs";
+import { donationAddresses } from "./donation-addresses.mjs";
 
 const effectsButton = document.querySelector(".effects-button");
 if (effectsButton) {
@@ -101,4 +102,51 @@ if (repositoryList && repositorySort) {
     const button = event.target.closest("button[data-repository-sort]");
     if (button) showRepositories(button.dataset.repositorySort);
   });
+}
+
+const donationBox = document.querySelector(".donation-box");
+if (donationBox) {
+  const address = document.querySelector("#donation-address");
+  const reveal = document.querySelector("#donation-reveal");
+  const copy = document.querySelector("#donation-copy");
+  const status = document.querySelector("#donation-status");
+  let asset = "BTC";
+  let revealed = false;
+
+  enableCopy(copy, () => donationAddresses[asset], "Donation address copied.");
+  function updateDonation() {
+    const configured = typeof donationAddresses[asset] === "string" && donationAddresses[asset].length > 0;
+    donationBox.dataset.donationAsset = asset;
+    donationBox.querySelectorAll("[data-donation-choice]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.donationChoice === asset));
+    });
+    document.querySelector("#donation-network").textContent = asset === "BTC" ? "BITCOIN NETWORK" : "ZENON NETWORK";
+    address.textContent = configured ? donationAddresses[asset] : `${asset} address pending`;
+    address.hidden = !revealed;
+    address.classList.toggle("address-pending", !configured);
+    reveal.hidden = revealed;
+    reveal.setAttribute("aria-expanded", String(revealed));
+    copy.hidden = !revealed;
+    copy.disabled = !(configured && navigator.clipboard && window.isSecureContext);
+    copy.setAttribute("aria-label", `Copy ${asset} donation address`);
+    copy.textContent = "[ copy ]";
+  }
+  donationBox.querySelectorAll("[data-donation-choice]").forEach((button) => {
+    button.disabled = false;
+    button.addEventListener("click", () => {
+      asset = button.dataset.donationChoice;
+      updateDonation();
+      status.textContent = donationAddresses[asset]
+        ? `${asset} selected. ${revealed ? "Donation address shown." : "Reveal the donation address to continue."}`
+        : `${asset} donation address pending.`;
+    });
+  });
+  reveal.addEventListener("click", () => {
+    revealed = true;
+    updateDonation();
+    address.tabIndex = -1;
+    address.focus();
+    status.textContent = donationAddresses[asset] ? `${asset} donation address revealed.` : `${asset} address pending.`;
+  });
+  updateDonation();
 }
